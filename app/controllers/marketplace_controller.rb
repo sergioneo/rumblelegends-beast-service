@@ -11,10 +11,13 @@ class MarketplaceController < ApplicationController
 
     beast_type_strings = {"0" => "dinosaur", "1" => "unicorn"}
 
+    return_payload = Hash.new
+
+    return_payload["found"] = query_result["found"]
+
   	beasts = Array.new
 
-    query_result.each do |beast|
-      puts beast
+    query_result["hits"].each do |beast|
       beast_type_string = beast_type_strings[beast["beast_type"].to_s]
       image_url = image_base_url+beast_type_string+"/"+beast["genes"]
   		beast_card = (render_to_string partial: "templates/beast_card", locals: {:beast => beast, :image_url => image_url})
@@ -22,7 +25,9 @@ class MarketplaceController < ApplicationController
   		beasts << {:card => beast_card, :pricing => pricing_url}
   	end
 
-  	render json: beasts
+    return_payload["hits"] = beasts
+
+  	render json: return_payload
 
   end
 end
