@@ -22,7 +22,7 @@ class MarketplaceController < ApplicationController
       image_url = image_base_url+beast_type_string+"/"+beast["genes"]
   		beast_card = (render_to_string partial: "templates/beast_card", locals: {:beast => beast, :image_url => image_url})
   		pricing_url = ENV["PRICING_SERVICE"]+"beast/"+beast["external_id"].to_s
-  		beasts << {:card => beast_card, :pricing => pricing_url}
+  		beasts << {:card => beast_card, :pricing => pricing_url, :id => beast["external_id"]}
   	end
 
     return_payload["hits"] = beasts
