@@ -1,28 +1,28 @@
 <div class="container-card__content__single">
- <div class="container-card__content__single__background">
-   <img src="cross/assets/img/marco_card_single.png" alt="Marco Card">
- </div>
+   <div class="container-card__content__single__background">
+     <img src="cross/assets/img/marco_card_single.png" alt="Marco Card">
+   </div>
 
- <div class="container-card__content__single__element">
-   <img src="cross/assets/img/icn_element.png" alt="Marco Card">
- </div>
- <div class="container-card__content__single__picture">
-   <img src="<%= image_url %>" alt="Marco Card">
- </div>
+   <div class="container-card__content__single__element">
+     <img src="cross/assets/img/icn_element.png" alt="Marco Card">
+   </div>
+   <div class="container-card__content__single__picture">
+     <img src="<%= image_url %>" alt="Marco Card">
+   </div>
 
 
 
- <div class="container-card__content__single__content-heart">
-   <img src="cross/assets/img/heart.png" alt="Marco Card">
-   <span><%= beast['likes'] %></span>
- </div>
+   <div class="container-card__content__single__content-heart">
+     <img src="cross/assets/img/heart.png" alt="Marco Card">
+     <span><%= beast['likes'] %></span>
+   </div>
 
- <div class="container-card__content__single__footer">
-   <span class="container-card__content__single__footer__name"><%= beast['name'] %></span>
-   <div class="container-card__content__single__footer__price">
-     <img src="cross/assets/img/icn_ethereum.svg" alt="Marco Card">
-     <span></span>
-     <span></span>
+   <div class="container-card__content__single__footer">
+     <span class="container-card__content__single__footer__name"><%= beast['name'] %></span>
+     <div class="container-card__content__single__footer__price">
+       <img src="cross/assets/img/icn_ethereum.svg" alt="Marco Card">
+       <span id="ether-<%= beast['external_id'] %>">0.02</span>
+       <span id="us-<%= beast['external_id'] %>"> / US $25</span>
+     </div>
    </div>
  </div>
-</div>
