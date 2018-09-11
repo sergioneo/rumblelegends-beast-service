@@ -32,7 +32,6 @@ class MarketplaceController < ApplicationController
 
 
     query_url = ENV["INFORMATION_SERVICE"]+'query?limit='+number_per_page+"&offset="+offset.to_s+"&start="+start+"&orderBy="+orderBy+"&asc="+asc
-    puts query_url
     query_result = JSON.parse(Typhoeus.get(query_url, followlocation: true).body)
     image_base_url = ENV["IMAGE_GENERATION_SERVICE"]
 
