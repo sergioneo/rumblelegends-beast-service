@@ -18,10 +18,14 @@ class DetailController < ApplicationController
   	sire = JSON.parse(Typhoeus.get(query_url_sire, followlocation: true).body)
   	matron = JSON.parse(Typhoeus.get(query_url_matron, followlocation: true).body)
 
-  	beast[:sire] = sire
-  	beast[:sire][:image_url] = image_base_url+beast_type_string+"/"+sire["genes"].to_s
-  	beast[:matron] = matron
-  	beast[:matron][:image_url] = image_base_url+beast_type_string+"/"+sire["matron"].to_s
+    if beast["generation"] != 0
+
+    	beast[:sire] = sire
+    	beast[:sire][:image_url] = image_base_url+beast_type_string+"/"+sire["genes"].to_s
+    	beast[:matron] = matron
+    	beast[:matron][:image_url] = image_base_url+beast_type_string+"/"+sire["matron"].to_s
+
+    end
 
   	render json: beast
   end
