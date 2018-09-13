@@ -25,6 +25,9 @@ class DetailController < ApplicationController
     	beast[:matron] = matron
     	beast[:matron][:image_url] = image_base_url+beast_type_string+"/"+sire["matron"].to_s
 
+    else
+      beast[:sire] = Hash.new
+      beast[:matron] = Hash.new
     end
 
   	render json: beast
